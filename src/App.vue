@@ -1,32 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+     <TopList v-if="$route.meta.isShowTop"></TopList>
     <router-view/>
+    <playController v-if="$route.meta.iscontroller"></playController>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import TopList from './components/TopList/TopList'
+import playController from './components/palyController/playController.vue'
+export default {
+  name:'App',
+  components: {
+   TopList,
+   playController
   }
+  
 }
+</script>
+
+<style lang="less">
+
 </style>
